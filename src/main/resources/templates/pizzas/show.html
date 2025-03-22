@@ -3,13 +3,16 @@
   <head>
     <title>PizzaShow</title>
 
+    <!-- Styles -->
     <th:block th:replace="~{fragments/fragments :: styles}" />
   </head>
   <body>
+    <!-- Header -->
     <th:block th:replace="~{fragments/fragments :: header}" />
 
     <div class="container"> 
       <main>
+        <!-- Pizza Card -->
         <div th:if="${pizza != null}" th:object="${pizza}" class="mt-5">
           <div class="card">
             <div class="row g-0">
@@ -28,12 +31,14 @@
           </div>
         </div>
 
+        <!-- error -->
         <div th:unless="${pizza != null}" class="my-5">
           <h3>Pizza not in list</h5>
         </div>
       </main>
     </div>
 
+    <!-- Scripts -->
     <th:block th:replace="~{fragments/fragments :: scripts}" />
   </body>
 </html>
