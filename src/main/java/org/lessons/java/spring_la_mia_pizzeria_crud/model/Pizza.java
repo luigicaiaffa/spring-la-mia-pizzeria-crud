@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -14,7 +15,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
-@Table(name = "pizzeria")
+@Table(name = "pizzas")
 public class Pizza {
 
     @Id
@@ -24,6 +25,7 @@ public class Pizza {
     @NotBlank
     private String name;
 
+    @Lob
     private String description;
 
     @Column(name = "image_url")
@@ -43,7 +45,6 @@ public class Pizza {
         this.price = price;
     }
 
-    
     public Pizza(String name, String imgUrl, BigDecimal price) {
         this.name = name;
         this.imgUrl = imgUrl;
@@ -56,8 +57,6 @@ public class Pizza {
         this.imgUrl = imgUrl;
         this.price = price;
     }
-
-
 
     // # Getter e Setter
     public Integer getId() {
@@ -98,6 +97,11 @@ public class Pizza {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza:  " + this.name + " " + this.price;
     }
 
 }
