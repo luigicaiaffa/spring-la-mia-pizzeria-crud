@@ -22,7 +22,7 @@ public class PizzaController {
         List<Pizza> pizzas = repository.findAll();
 
         model.addAttribute("pizzas", pizzas);
-        return "pizzas/index";
+        return "/pizzas/index";
     }
 
 }
