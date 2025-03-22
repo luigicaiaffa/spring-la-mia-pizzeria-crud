@@ -23,13 +23,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
-                <th scope="row">[[*{id}]]</th>
-                <td>[[*{name}]]</td>
-                <td>[[*{description}]]</td>
-                <td>[[*{imgUrl}]]</td>
-                <td>[[*{price}]] &#8364;</td>
-              </tr>
+              <a th:each="pizza : ${pizzas}" th:object="${pizza}" th:href="@{/pizzas/{id}(id=*{id})}">
+                <tr>
+                  <th scope="row">[[*{id}]]</th>
+                  <td>[[*{name}]]</td>
+                  <td>[[*{description}]]</td>
+                  <td><a th:href="@{/img/pizzasplaceholder.jpg}">[[*{imgUrl}]]</a></td>
+                  <td>[[*{price}]] &#8364;</td>
+                </tr>
+              </a>
             </tbody>
           
           </table>

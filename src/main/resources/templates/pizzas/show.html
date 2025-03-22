@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>PizzasIndex</title>
+
+    <th:block th:replace="~{fragments/fragments :: styles}" />
+  </head>
+  <body>
+    <th:block th:replace="~{fragments/fragments :: header}" />
+
+    <div class="container"> 
+      <main>
+        <div th:if="${pizza != null}" th:object="${pizza}" class="mt-5">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img th:src="@{/img/pizzasplaceholder.jpg}" class="img-fluid rounded-start" alt="img">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h1 class="card-title">[[*{name}]]</h1>
+                  <h5>&#8722; [[*{price}]] &#8364;</h5>
+                  <h5 class="mt-4">Description:</h5>
+                  <p>[[*{description}]]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div th:unless="${pizza != null}" class="my-5">
+          <h3>Pizza Not Found</h5>
+        </div>
+      </main>
+    </div>
+
+    <th:block th:replace="~{fragments/fragments :: scripts}" />
+  </body>
+</html>
