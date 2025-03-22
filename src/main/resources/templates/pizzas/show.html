@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>PizzasIndex</title>
+    <title>PizzaShow</title>
 
     <th:block th:replace="~{fragments/fragments :: styles}" />
   </head>
@@ -29,7 +29,7 @@
         </div>
 
         <div th:unless="${pizza != null}" class="my-5">
-          <h3>Pizza Not Found</h5>
+          <h3>Pizza not in list</h5>
         </div>
       </main>
     </div>
