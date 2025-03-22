@@ -12,7 +12,7 @@
       <main>
         <div th:if="${pizzas.size() != 0}" class="mt-5">
           <h1>Pizzas</h1>
-          <table class="table table-striped table-hover">
+          <table class="table table-striped table-hover my-3">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -20,20 +20,19 @@
                 <th scope="col">Description</th>
                 <th scope="col">Image Url</th>
                 <th scope="col">Price</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <a th:each="pizza : ${pizzas}" th:object="${pizza}" th:href="@{/pizzas/{id}(id=*{id})}">
-                <tr>
+                <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
                   <th scope="row">[[*{id}]]</th>
                   <td>[[*{name}]]</td>
                   <td>[[*{description}]]</td>
                   <td><a th:href="@{/img/pizzasplaceholder.jpg}">[[*{imgUrl}]]</a></td>
                   <td>[[*{price}]] &#8364;</td>
+                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-dark">&#x1F50E;&#xFE0E;</a></td>
                 </tr>
-              </a>
             </tbody>
-          
           </table>
         </div>
 
