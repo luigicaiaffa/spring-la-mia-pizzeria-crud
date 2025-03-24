@@ -19,7 +19,7 @@
           </div>
 
           <div>
-            <a class="btn btn-light" th:href="@{/pizzas}">Back to list</a>
+            <a class="btn btn-dark" th:href="@{/pizzas}">Back to list</a>
           </div>
         </div>
 
@@ -32,11 +32,19 @@
               <div class="col-md-5">
                 <img th:src="@{/img/pizzasplaceholder.jpg}" class="img-fluid rounded-start" alt="img">
               </div>
-              <div class="col-md-7">
+              <div class="col-md-7 d-flex flex-column">
                 <div class="card-body">
                   <h5>&#8722; [[*{price}]] &#8364;</h5>
                   <h5 class="mt-4">Description:</h5>
                   <p>[[*{description}]]</p>
+                </div> 
+                <div class="card-footer d-flex justify-content-end gap-2">
+                  <div>
+                    <a th:href="@{/pizzas/edit/{id}(id = *{id})}" class="btn btn-sm btn-secondary">&#9998;</a>
+                  </div>
+                  <div>
+                    <th:block th:replace="~{fragments/fragments :: deleteModal}"></th:block>
+                  </div>
                 </div>
               </div>
             </div>
