@@ -12,10 +12,108 @@
 
     <div class="container">
       <main>
-        <!-- Form -->
         <div class="mt-5">
-          <h1>Form</h1>
+          <h1>New Pizza</h1>
         </div>
+
+        <hr />
+
+        <!-- New pizza form -->
+        <form
+          id="pizza-form"
+          method="POST"
+          action="/pizzas/create"
+          th:object="${pizza}"
+          class="row g-3 mt-3"
+        >
+          <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              th:field="*{name}"
+              th:errorClass="is-invalid"
+            />
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}">
+              <ul>
+                <li
+                  th:each="error : ${#fields.errors('name')}"
+                  th:text="${error}"
+                ></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              class="form-control"
+              id="price"
+              th:field="*{price}"
+              th:errorClass="is-invalid"
+            />
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}">
+              <ul>
+                <li
+                  th:each="error : ${#fields.errors('price')}"
+                  th:text="${error}"
+                ></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="imgUrl" class="form-label">Image Url</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imgUrl"
+              th:field="*{imgUrl}"
+              th:errorClass="is-invalid"
+            />
+            <div
+              class="invalid-feedback"
+              th:if="${#fields.hasErrors('imgUrl')}"
+            >
+              <ul>
+                <li
+                  th:each="error : ${#fields.errors('imgUrl')}"
+                  th:text="${error}"
+                ></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              th:field="*{description}"
+              th:errorClass="is-invalid"
+            ></textarea>
+            <div
+              class="invalid-feedback"
+              th:if="${#fields.hasErrors('description')}"
+            >
+              <ul>
+                <li
+                  th:each="error : ${#fields.errors('description')}"
+                  th:text="${error}"
+                ></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-around mt-4">
+            <input type="submit" class="btn btn-success" value="Add pizza" />
+            <input type="reset" class="btn btn-danger" value="Clear fields" />
+          </div>
+        </form>
       </main>
     </div>
 
