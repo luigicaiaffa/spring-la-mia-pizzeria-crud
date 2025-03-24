@@ -44,6 +44,8 @@
                 <th scope="col">Image Url</th>
                 <th scope="col">Price</th>
                 <th></th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -51,9 +53,11 @@
                   <th scope="row">[[*{id}]]</th>
                   <td>[[*{name}]]</td>
                   <td>[[*{description}]]</td>
-                  <td><a th:href="@{/img/pizzasplaceholder.jpg}">[[*{imgUrl}]]</a></td>
+                  <td><a class="img-link" th:href="@{/img/pizzasplaceholder.jpg}">[[*{imgUrl}]]</a></td>
                   <td>[[*{price}]] &#8364;</td>
-                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-light">&#9678;</a></td>
+                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-light">&#128065;</a></td>
+                  <td><a th:href="@{/pizzas/edit/{id}(id = *{id})}" class="btn btn-light">&#9998;</a></td>
+                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-light">&#128465;</a></td>
                 </tr>
             </tbody>
           </table>

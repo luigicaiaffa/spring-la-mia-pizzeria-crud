@@ -3,6 +3,6 @@ a {
     color: var(--bs-table-color-state);
 }
 
-td a:hover {
+.img-link:hover {
     text-decoration: underline;
 }
