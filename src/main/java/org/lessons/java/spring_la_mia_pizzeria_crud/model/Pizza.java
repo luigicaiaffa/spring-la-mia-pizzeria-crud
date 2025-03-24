@@ -22,7 +22,7 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
     @Lob
@@ -31,9 +31,9 @@ public class Pizza {
     @Column(name = "image_url")
     private String imgUrl;
 
-    @NotNull
-    @Positive
-    @Digits(integer = 5, fraction = 2)
+    @NotNull(message = "Price cannot be null")
+    @Positive(message = "Price must be positive")
+    @Digits(integer = 3, fraction = 2, message = "Price can have up to 3 digits and 2 decimals")
     private BigDecimal price;
 
     // # Costruttori

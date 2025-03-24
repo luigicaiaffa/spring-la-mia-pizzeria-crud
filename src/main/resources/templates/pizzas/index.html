@@ -13,17 +13,25 @@
     <div class="container">
       <main>
         <!-- Title & Search form -->
-        <div class="d-flex justify-content-between align-items-center mt-5">
+        <div class="mt-5 mb-2">
           <h1>Pizzas</h1>
-  
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
           <form action="/pizzas" method="GET">
             <div class="input-group">
               <input th:value="${name}" type="text" name="name" placeholder="Search by name" class="form-control">
               <button type="submit" class="btn btn-dark">&#x1F50E;&#xFE0E;</button>
-              <button class="btn btn-dark"><a th:href=@{/pizzas}>&#8634;</a></button>
+              <button class="btn btn-danger"><a th:href=@{/pizzas}>&#8634;</a></button>
             </div>
           </form>
+          
+          <div>
+            <a class="btn btn-success" th:href="@{/pizzas/create}">Add Pizza</a>
+          </div>
         </div>
+
+        <hr>
 
         <!-- Pizzas Table -->
         <div th:if="${pizzas.size() != 0}">
@@ -45,7 +53,7 @@
                   <td>[[*{description}]]</td>
                   <td><a th:href="@{/img/pizzasplaceholder.jpg}">[[*{imgUrl}]]</a></td>
                   <td>[[*{price}]] &#8364;</td>
-                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-dark">&#9678;</a></td>
+                  <td><a th:href="@{/pizzas/{id}(id = *{id})}" class="btn btn-light">&#9678;</a></td>
                 </tr>
             </tbody>
           </table>

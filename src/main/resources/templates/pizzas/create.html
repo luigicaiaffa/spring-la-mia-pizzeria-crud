@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>PizzaShow</title>
+
+    <!-- Styles -->
+    <th:block th:replace="~{fragments/fragments :: styles}" />
+  </head>
+  <body>
+    <!-- Header -->
+    <th:block th:replace="~{fragments/fragments :: header}" />
+
+    <div class="container">
+      <main>
+        <!-- Form -->
+        <div class="mt-5">
+          <h1>Form</h1>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <th:block th:replace="~{fragments/fragments :: scripts}" />
+  </body>
+</html>

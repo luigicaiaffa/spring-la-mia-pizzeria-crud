@@ -21,7 +21,7 @@ public class PizzaController {
     private PizzaRepository repository;
 
     @GetMapping
-    public String getIndex(Model model, @RequestParam(name = "name", required = false) String name) {
+    public String index(Model model, @RequestParam(name = "name", required = false) String name) {
         List<Pizza> pizzas;
 
         if (name != null && !name.isEmpty()) {
@@ -35,7 +35,7 @@ public class PizzaController {
     }
 
     @GetMapping("/{id}")
-    public String getShow(Model model, @PathVariable("id") Integer id) {
+    public String show(Model model, @PathVariable("id") Integer id) {
         try {
             Pizza pizza = repository.findById(id).get();
             model.addAttribute("pizza", pizza);
@@ -44,6 +44,13 @@ public class PizzaController {
         }
 
         return "/pizzas/show";
+    }
+
+    @GetMapping("/create")
+    public String create(Model model) {
+
+        model.addAttribute("pizza", new Pizza());
+        return "/pizzas/create";
     }
 
 }
